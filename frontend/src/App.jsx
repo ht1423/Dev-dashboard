@@ -1,8 +1,14 @@
 import React from 'react'
+import AppRoutes from './components/app/AppRoutes'
+import { ToastContainer } from 'react-toastify'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
   return (
-    <div className='text-4xl text-red-500'>App</div>
+    <BrowserRouter>
+      <AppRoutes/>
+      <ToastContainer/>
+    </BrowserRouter>
   )
 }
 
