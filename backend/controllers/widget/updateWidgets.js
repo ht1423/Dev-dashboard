@@ -1,11 +1,16 @@
 import User from "../../models/User.js"
+import Widget from "../../models/Widget.js"
 
 const updateWidgets = async (req,res) => {
     const { widgets } = req.body
-    const userId = '68116e4ac3ff7c5ea824b29e'
+    const userId = '681231a61025335b294847d0'
 
     try {
-        const updatedUser = await User.findByIdAndUpdate(userId,{ widgets },{ new: true })
+        const updatedUser = await User.findByIdAndUpdate(userId)
+
+        const widgetsBundleId = updatedUser.widgetsBundle._id
+
+        const updatedWidgets = await Widget.findOneAndUpdate(widgetsBundleId, { widgets })
         
         if(!updatedUser){
             return res.status(404).json({
@@ -15,7 +20,7 @@ const updateWidgets = async (req,res) => {
 
         return res.json({
             msg: 'widgets updated successfully',
-            widgets: updatedUser.widgets
+            widgets: updatedWidgets
         })
     }
     catch (err){

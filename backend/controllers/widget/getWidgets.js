@@ -1,10 +1,10 @@
 import User from "../../models/User.js"
 
 const getWidgets = async (req,res) => {
-    const userId = '68116e4ac3ff7c5ea824b29e'
+    const userId = '681231a61025335b294847d0'
 
     try {
-        const user = await User.findById(userId).populate('widgets')
+        const user = await User.findById(userId).populate('widgetsBundle')
 
         if(!user){
             return res.status(404).json({
@@ -14,7 +14,7 @@ const getWidgets = async (req,res) => {
 
         return res.json({
             msg: 'user found',
-            widgets: user.widgets
+            widgets: user.widgetsBundle.widgets
         })
     }
     catch (err){

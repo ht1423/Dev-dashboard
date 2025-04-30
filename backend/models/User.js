@@ -1,9 +1,9 @@
 import mongoose from 'mongoose'
 
 const userSchema = new mongoose.Schema({
-    widgets: {
-        type: [String],
-        default: ['github','stackoverflow','notes','clock','timer','todo','weather','links','quotes']
+    widgetsBundle: { 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Widget',
     }
 })
 

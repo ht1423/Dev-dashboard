@@ -7,6 +7,7 @@ const widgetStore = create((set,get) => ({
 
     getWidgets: async () => {
         const currentRoute = route
+        console.log("currentRoute", currentRoute)
 
         try {
             const response = await axios.get(currentRoute, { withCredentials: true })

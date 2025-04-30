@@ -1,7 +1,7 @@
 import User from "../../models/User.js"
 
 const getUser = async (req,res) => {
-    const userId = '68116e4ac3ff7c5ea824b29e'
+    const userId = '681231a61025335b294847d0'
 
     try {
         const user = await User.findById(userId)
